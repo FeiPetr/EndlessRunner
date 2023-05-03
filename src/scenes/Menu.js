@@ -17,7 +17,7 @@ class Menu extends Phaser.Scene{ //creating js class 'menu' that extends phaser'
         this.load.image('bgtile', './assets/starfield.png');
         // replace with new background tile
 
-        this.load.image('platform','./assets/tilesprite.png')
+        
     }
       
     create(){
@@ -45,7 +45,7 @@ class Menu extends Phaser.Scene{ //creating js class 'menu' that extends phaser'
         // show menu text
 
         // define keys, space for jump mayhaps
-        keyUP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+        keyUP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
         //keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
     }
 

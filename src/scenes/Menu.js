@@ -45,12 +45,12 @@ class Menu extends Phaser.Scene{ //creating js class 'menu' that extends phaser'
         // show menu text
 
         // define keys, space for jump mayhaps
-        keyUP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
+        keyUP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         //keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
     }
 
     update() {
-        if (Phaser.Input.Keyboard.JustDown(SPACE)) {
+        if (Phaser.Input.Keyboard.JustDown(keyUP)) {
           // Novice mode
           this.sound.play('sfx_select'); // probably add one of these
           this.scene.start("playScene");    

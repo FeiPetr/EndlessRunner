@@ -7,6 +7,8 @@ class Play extends Phaser.Scene{ //creating js class 'menu' that extends phaser'
     preload() {
         // load images/tile sprites
         this.load.image('character', './assets/cat.PNG');
+        this.load.image('icecream','./assets/icecream.PNG');
+        this.load.image('orange','./assets/orange.PNG');
 
         // add more tile sprites here and replace, etc etc
         this.load.image('platform','./assets/board.PNG');
@@ -73,6 +75,10 @@ class Play extends Phaser.Scene{ //creating js class 'menu' that extends phaser'
           if (Phaser.Input.Keyboard.JustDown(keyUP)) {
             this.startJump();
           }
+          this.random = Phaser.Math.Between(1, 4);
+
+          this.orange = this.add.sprite(this.sys.game.config.width / this.random, this.sys.game.config.height/this.random,'orange');
+          this.ice_cream = this.add.sprite(this.sys.game.config.width / this.random, this.sys.game.config.height/this.random,'icecream');
   
         }
       }

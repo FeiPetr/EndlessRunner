@@ -13,7 +13,8 @@ class Play extends Phaser.Scene{ //creating js class 'menu' that extends phaser'
         // add more tile sprites here and replace, etc etc
         this.load.image('platform','./assets/board.PNG');
         // load spritesheet
-        this.load.multiatlas('character', './assets/cat_sprites.PNG', {frameWidth: 107, frameHeight: 80, startFrame: 0, endFrame: 1});      }
+        this.load.spritesheet('character', './assets/cat_sprites.PNG', {frameWidth: 107, frameHeight: 80, startFrame: 0, endFrame: 1});
+            }
       
     create(){
         // place tile sprite
@@ -21,6 +22,8 @@ class Play extends Phaser.Scene{ //creating js class 'menu' that extends phaser'
 
         // add runner
         //this.character = new Character(this, game.config.width/2, game.config.height - borderUISize - borderPadding, 'character').setOrigin(0.5, 0);
+
+        this.character = this.physics.add.sprite(this.sys.game.config.width / 2, this.sys.game.config.height/2, 'character');
         this.anims.create({
           key: 'cat',
           frames: this.anims.generateFrameNumbers('character', { start: 0, end: 1, first: 0}),
@@ -28,7 +31,7 @@ class Play extends Phaser.Scene{ //creating js class 'menu' that extends phaser'
           repeat: -1
         });
 
-        this.character = this.physics.add.sprite(this.sys.game.config.width / 2, this.sys.game.config.height/2, 'character');
+        character.anims.play('cat');
         this.orange = new Collectable(this, -100, -100, 'orange', 0, 30).setOrigin(0, 0);
         this.ice_cream = new Collectable(this, -100, -100, 'icecream', 0, 30).setOrigin(0, 0);
         this.orange2 = new Collectable(this, -100, -100, 'orange', 0, 30).setOrigin(0, 0);

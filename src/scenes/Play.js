@@ -27,11 +27,11 @@ class Play extends Phaser.Scene{ //creating js class 'menu' that extends phaser'
         this.anims.create({
           key: 'cat',
           frames: this.anims.generateFrameNumbers('character', { start: 0, end: 1, first: 0}),
-          frameRate: 5,
+          frameRate: 3,
           repeat: -1
         });
 
-        character.anims.play('cat');
+        this.character.anims.play('cat');
         this.orange = new Collectable(this, -100, -100, 'orange', 0, 30).setOrigin(0, 0);
         this.ice_cream = new Collectable(this, -100, -100, 'icecream', 0, 30).setOrigin(0, 0);
         this.orange2 = new Collectable(this, -100, -100, 'orange', 0, 30).setOrigin(0, 0);

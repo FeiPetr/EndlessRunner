@@ -14,7 +14,7 @@ class Menu extends Phaser.Scene{ //creating js class 'menu' that extends phaser'
         this.load.image('menuscreen', './assets/chapamenu.png');
         // replace with new menu image
 
-        this.load.image('bgtile', './assets/starfield.png');
+        this.load.image('bgtile', './assets/chapabg.png');
         // replace with new background tile
 
         

@@ -46,7 +46,7 @@ class Play extends Phaser.Scene{ //creating js class 'menu' that extends phaser'
         let scoreConfig = {
           fontFamily: 'Courier',
           fontSize: '28px',
-          //backgroundColor: '#F3B141',
+          backgroundColor: '#8F037C',
           color: '#FFFFFF',
           align: 'right',
           padding: {
@@ -106,7 +106,7 @@ class Play extends Phaser.Scene{ //creating js class 'menu' that extends phaser'
         let scoreConfig = {
           fontFamily: 'Courier',
           fontSize: '28px',
-          //backgroundColor: '#F3B141',
+          backgroundColor: '#8F037C',
           color: '#FFFFFF',
           align: 'center',
           padding: {

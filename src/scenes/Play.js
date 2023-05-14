@@ -51,11 +51,10 @@ class Play extends Phaser.Scene{ //creating js class 'menu' that extends phaser'
             top: 5,
             bottom: 5,
           },
-          fixedWidth: 350
+          fixedWidth: 100
         }
         this.scoreLeft = this.add.text(borderUISize + borderPadding, borderUISize + borderPadding*2-30,"Score: "+ this.p1Score, scoreConfig);
         this.livesLeft = this.add.text(borderUISize + borderPadding+200, borderUISize + borderPadding*2-30,"Life: " + this.lifeScore, scoreConfig);
-        this.tutText = this.add.text(borderUISize + borderPadding+200, borderUISize + borderPadding + 40,"Press Space to Jump!" + this.lifeScore, scoreConfig);
 
       // initialize orange and ice cream offscreen
 
@@ -105,8 +104,8 @@ class Play extends Phaser.Scene{ //creating js class 'menu' that extends phaser'
         let scoreConfig = {
           fontFamily: 'Courier',
           fontSize: '28px',
-          backgroundColor: '#F3B141',
-          color: '#843605',
+          //backgroundColor: '#F3B141',
+          color: '#FFFFFF',
           align: 'center',
           padding: {
             top: 5,
@@ -190,10 +189,10 @@ class Play extends Phaser.Scene{ //creating js class 'menu' that extends phaser'
       }
   
       checkCollision(character, obj) {
-        if (character.x < obj.x + obj.width && 
-            character.x + character.width > obj.x && 
-            character.y < obj.y + obj.height &&
-            character.height + character.y > obj.y) {
+        if (character.x < obj.x + obj.width+40 && 
+            character.x + character.width-50 > obj.x && 
+            character.y < obj.y + obj.height + 40 &&
+            character.height + character.y-50 > obj.y) {
             return true;
           } else {
             return false;

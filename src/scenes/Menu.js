@@ -11,7 +11,7 @@ class Menu extends Phaser.Scene{ //creating js class 'menu' that extends phaser'
         this.load.audio('sfx_select', './assets/explosion1.wav');
         // sfx for starting
 
-        this.load.image('menuscreen', './assets/rocketpatrolmenu.png');
+        this.load.image('menuscreen', './assets/chapamenu.png');
         // replace with new menu image
 
         this.load.image('bgtile', './assets/starfield.png');
@@ -53,7 +53,7 @@ class Menu extends Phaser.Scene{ //creating js class 'menu' that extends phaser'
         if (Phaser.Input.Keyboard.JustDown(keyUP)) {
           // Novice mode
           this.sound.play('sfx_select'); // probably add one of these
-          this.scene.start("tutorialScene");    
+          this.scene.start("playScene");    
         }
       }
 }

@@ -1,7 +1,7 @@
-class Play extends Phaser.Scene{ //creating js class 'menu' that extends phaser's predef scene object
+class Tutorial extends Phaser.Scene{ //creating js class 'menu' that extends phaser's predef scene object
     constructor() // The constructor (a special method for creating and initializing an object) uses
     {             // the "super" keyword to call the constructor of the super class
-        super("playScene");
+        super("tutorialScene");
     }
 
     preload() {
@@ -46,7 +46,7 @@ class Play extends Phaser.Scene{ //creating js class 'menu' that extends phaser'
           fontSize: '28px',
           //backgroundColor: '#F3B141',
           color: '#FFFFFF',
-          align: 'right',
+          align: 'center',
           padding: {
             top: 5,
             bottom: 5,
@@ -84,7 +84,7 @@ class Play extends Phaser.Scene{ //creating js class 'menu' that extends phaser'
         keyUP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
         // GAME OVER flag
-        this.gameOver = false; 
+        this.endTut = false; 
         
 
      }
@@ -114,91 +114,29 @@ class Play extends Phaser.Scene{ //creating js class 'menu' that extends phaser'
           },
           fixedWidth: 500
         }
-        if(this.gameOver)
-        {
-          if(Phaser.Input.Keyboard.JustDown(keyUP))
-          {
-            this.scene.restart();
-          }
-          this.add.text(game.config.width/2, game.config.height/2, 'GAME OVER', scoreConfig).setOrigin(0.5);
-          this.add.text(game.config.width/2, game.config.height/2 + 64, 'Press Space to Restart', scoreConfig).setOrigin(0.5);
-
-
-        }
         
-        if(!this.gameOver){
 
           this.elapsed = parseInt(this.clock.getElapsedSeconds());
           //this.random = Phaser.Math.Between(1, 100);
 
-          this.bgtile.tilePositionX += this.elapsed*0.1+2; // making background scroll
-          
-            this.orange.x -= this.elapsed*0.1+2.5;
-            this.orange2.x -= this.elapsed*0.1+2.5;
-            this.ice_cream.x -=this.elapsed*0.1+2.5;
-            this.ice_cream2.x -=this.elapsed*0.1+2.5;
-            this.orange.update();
-            this.ice_cream.update();
-            if(this.elapsed % 2 == 0){ // make ice creams and oranges move around
-              this.orange2.update();
-              this.orange2.y += this.elapsed*0.05+1;
-            }
-            if(this.elapsed%3 == 0)
-            {
-              this.ice_cream2.update();
-              this.ice_cream2.x -= this.elapsed*0.05+1;
-            }
-            if(this.elapsed%4==0)
-            {
-              this.orange2.y -= this.elapsed*0.05+1;
-            }
-          
-          if(this.checkCollision(this.character, this.ice_cream)) //check collisions and making disappear
-          {
-            this.ice_cream.y = 1000;
-            this.p1Score+=10;
-          }
-          if(this.checkCollision(this.character, this.ice_cream2))
-          {
-            this.ice_cream2.y = 1000;
-            this.p1Score+=10;
-          }
-          if(this.checkCollision(this.character, this.orange))
-          {
-            this.orange.y = 1000;
-            this.lifeScore -=1;
-          }
-          if(this.checkCollision(this.character, this.orange2))
-          {
-            this.orange2.y = 1000;
-            this.lifeScore -=1;
-          }
+          this.bgtile.tilePositionX += 2; // making background scroll   
+          this.tutText.text = "Press Space to jump!";       
 
 
           this.scoreLeft.text = "S: " + String(this.p1Score);
           this.livesLeft.text = "♡ x " + String(this.lifeScore);
-          if(this.lifeScore <= 0)
-          {
-            this.gameOver = true; //game over if you die
-          }
             // update tiles appearing?
             if (Phaser.Input.Keyboard.JustDown(keyUP)) {
               this.startJump();
+              this.endTut = true;
             }
-      }
+            if (this.endTut && this.elapsed >= 5)
+            {
+                this.scene.start("playScene"); 
+            }
+      
         
       }
-  
-      checkCollision(character, obj) {
-        if (character.x < obj.x + obj.width && 
-            character.x + character.width > obj.x && 
-            character.y < obj.y + obj.height &&
-            character.height + character.y > obj.y) {
-            return true;
-          } else {
-            return false;
-          }
-        }
   
     
 }

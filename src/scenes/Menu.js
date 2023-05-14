@@ -53,7 +53,7 @@ class Menu extends Phaser.Scene{ //creating js class 'menu' that extends phaser'
         if (Phaser.Input.Keyboard.JustDown(keyUP)) {
           // Novice mode
           this.sound.play('sfx_select'); // probably add one of these
-          this.scene.start("playScene");    
+          this.scene.start("tutorialScene");    
         }
       }
 }

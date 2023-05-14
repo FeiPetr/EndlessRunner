@@ -10,7 +10,7 @@ class Play extends Phaser.Scene{ //creating js class 'menu' that extends phaser'
         this.load.image('icecream','./assets/icecream.PNG');
         this.load.image('orange','./assets/orange.PNG');
         this.load.audio('meow', './assets/menumeow.wav');
-        this.load.audio('scream', './assets/menumeow.wav');
+        this.load.audio('scream', './assets/catscream.wav');
 
         // add more tile sprites here and replace, etc etc
         this.load.image('platform','./assets/board.PNG');
@@ -121,8 +121,11 @@ class Play extends Phaser.Scene{ //creating js class 'menu' that extends phaser'
           {
             this.scene.restart();
           }
-          this.add.text(game.config.width/2, game.config.height/2, 'GAME OVER', scoreConfig).setOrigin(0.5);
-          this.add.text(game.config.width/2, game.config.height/2 + 64, 'Press Space to Restart', scoreConfig).setOrigin(0.5);
+          this.add.text(game.config.width/2, game.config.height/2 - 64, 'GAME OVER', scoreConfig).setOrigin(0.5);
+          this.add.text(game.config.width/2, game.config.height/2, 'Press Space to Restart', scoreConfig).setOrigin(0.5);
+          this.add.text(game.config.width/2, game.config.height/2 + 64, 'SFX: fthgurdy,InspectorJ,', scoreConfig).setOrigin(0.5);
+          this.add.text(game.config.width/2, game.config.height/2 + 120, 'castrathica on freesound.org', scoreConfig).setOrigin(0.5);
+          this.add.text(game.config.width/2, game.config.height/2 + 170, 'BGM: Ukulele by Benjamin Tissot', scoreConfig).setOrigin(0.5);
 
 
         }
@@ -199,7 +202,6 @@ class Play extends Phaser.Scene{ //creating js class 'menu' that extends phaser'
             character.x + character.width-50 > obj.x && 
             character.y < obj.y + obj.height + 40 &&
             character.height + character.y-50 > obj.y) {
-            
             return true;
           } else {
             return false;

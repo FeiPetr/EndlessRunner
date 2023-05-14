@@ -8,7 +8,7 @@ class Menu extends Phaser.Scene{ //creating js class 'menu' that extends phaser'
         this.load.audio('bgm', './assets/ukulele.mp3');
         // Replace with with new bgm
 
-        this.load.audio('sfx_select', './assets/menumeow.wav');
+        this.load.audio('sfx_select', './assets/castrathica.wav');
         // sfx for starting
 
         this.load.image('menuscreen', './assets/chapamenu.png');

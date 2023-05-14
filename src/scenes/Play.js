@@ -9,6 +9,8 @@ class Play extends Phaser.Scene{ //creating js class 'menu' that extends phaser'
         //this.load.image('character', './assets/cat.PNG');
         this.load.image('icecream','./assets/icecream.PNG');
         this.load.image('orange','./assets/orange.PNG');
+        this.load.audio('meow', './assets/menumeow.wav');
+        this.load.audio('scream', './assets/menumeow.wav');
 
         // add more tile sprites here and replace, etc etc
         this.load.image('platform','./assets/board.PNG');
@@ -154,21 +156,25 @@ class Play extends Phaser.Scene{ //creating js class 'menu' that extends phaser'
           
           if(this.checkCollision(this.character, this.ice_cream)) //check collisions and making disappear
           {
+            this.sound.play('meow');
             this.ice_cream.y = 1000;
             this.p1Score+=10;
           }
           if(this.checkCollision(this.character, this.ice_cream2))
           {
+            this.sound.play('meow');
             this.ice_cream2.y = 1000;
             this.p1Score+=10;
           }
           if(this.checkCollision(this.character, this.orange))
           {
+            this.sound.play('scream');
             this.orange.y = 1000;
             this.lifeScore -=1;
           }
           if(this.checkCollision(this.character, this.orange2))
           {
+            this.sound.play('scream');
             this.orange2.y = 1000;
             this.lifeScore -=1;
           }
@@ -193,6 +199,7 @@ class Play extends Phaser.Scene{ //creating js class 'menu' that extends phaser'
             character.x + character.width-50 > obj.x && 
             character.y < obj.y + obj.height + 40 &&
             character.height + character.y-50 > obj.y) {
+            
             return true;
           } else {
             return false;

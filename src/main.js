@@ -15,7 +15,7 @@ let config = {
             debug: false
         }
     },
-    scene: [Menu,Tutorial,Play]
+    scene: [Menu,Play]
 
 }
 // create function in config

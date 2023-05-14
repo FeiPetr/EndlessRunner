@@ -5,10 +5,10 @@ class Menu extends Phaser.Scene{ //creating js class 'menu' that extends phaser'
     }
 
     preload() {
-        this.load.audio('bgm', './assets/scifi.mp3');
+        this.load.audio('bgm', './assets/ukulele.mp3');
         // Replace with with new bgm
 
-        this.load.audio('sfx_select', './assets/explosion1.wav');
+        this.load.audio('sfx_select', './assets/menumeow.wav');
         // sfx for starting
 
         this.load.image('menuscreen', './assets/chapamenu.png');
@@ -40,7 +40,16 @@ class Menu extends Phaser.Scene{ //creating js class 'menu' that extends phaser'
             fixedWidth: 0
         }
         /// 
-        this.sound.play('bgm');
+        this.backgroundMusic = this.sound.add('bgm',
+        {
+            volume: 0.3,
+            loop: true
+        });
+        //backgroundMusic.on('loop', listener);
+        //backgroundMusic.setLoop(true);
+        this.backgroundMusic.play();
+
+
 
         // show menu text
 

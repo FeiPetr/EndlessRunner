@@ -46,8 +46,8 @@ class Play extends Phaser.Scene{ //creating js class 'menu' that extends phaser'
         let scoreConfig = {
           fontFamily: 'Courier',
           fontSize: '28px',
-          backgroundColor: '#8F037C',
-          color: '#FFFFFF',
+          //backgroundColor: '#8F037C',
+          color: '#8F037C',
           align: 'right',
           padding: {
             top: 5,
@@ -135,7 +135,7 @@ class Play extends Phaser.Scene{ //creating js class 'menu' that extends phaser'
           this.elapsed = parseInt(this.clock.getElapsedSeconds());
           //this.random = Phaser.Math.Between(1, 100);
 
-          this.bgtile.tilePositionX += this.elapsed*0.1+2; // making background scroll
+          this.bgtile.tilePositionX += this.elapsed*0.1+2.5; // making background scroll
           
             this.orange.x -= this.elapsed*0.1+2.5;
             this.orange2.x -= this.elapsed*0.1+2.5;
